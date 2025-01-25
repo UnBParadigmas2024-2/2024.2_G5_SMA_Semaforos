@@ -20,29 +20,31 @@
 ## Uso e Screenshots
 
 ## Instalação 
-**Linguagens**: Python<br>
+**Linguagens**: Python 3.11 ou superior<br>
 **Tecnologias**: MESA<br>
 
+Para instalar o MESA e suas dependências, utilize o seguinte comando:
+```
 pip3 install -r requirements.txt
+```
+Para executar o projeto, entre na pasta `src` e execute o servidor:
+```
+cd src
+solara run server.py
+```
 
-python3 run.py
-
-## Commom errors
+## Common errors
 
 ### Geral
 
-Na instalação de dependências, se ocorrer o seguinte erro:
-`
-error: externally-managed-environment
-`
-Significa que o mesa é uma dependência gerenciada externamente. Para isso, instale as dependências utilizando uma virtualenv no projeto:
-`
-error: externally-managed-environment
-`
-python3 -m venv ~/py_envs
-source ~/py_envs/bin/activate
+Se durante a instalação de dependências ocorrer o erro `error: externally-managed-environment`,    
+significa que o mesa é uma dependência gerenciada externamente. Para isso, instale as dependências utilizando uma virtualenv no projeto:
+
+```
+python3 -m venv semaforos
+source semaforos/bin/activate
 python3 -m pip install -r requirements.txt
-`
+```
 
 ### Linux
 
