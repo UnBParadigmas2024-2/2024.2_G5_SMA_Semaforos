@@ -18,15 +18,27 @@ class TrafficLightAgent(mesa.Agent):
 
     def step(self):
         self.timer += 1
-        #print(f"Eu sou o agente: {str(self.unique_id)}, estou {self.state}, e meu timer é {self.timer}.")
-        if self.timer > 10:
-            self.state = "green" if self.state == "red" else "red"
+        if self.state == "red" and self.timer > 10:
+            self.state = "green"
             self.timer = 0
+        elif self.state == "green" and self.timer > 10:
+            self.state = "yellow"
+            self.timer = 0
+        elif self.state == "yellow" and self.timer > 5:
+            self.state = "red"
+            self.timer = 0
+
+    def create_agents(model, n):
+        agents = []
+        for i in range(n):
+            agent = TrafficLightAgent(model=model, state="red")
+            agents.append(agent)
+        return agents
 
 class CarAgent(mesa.Agent):
     def __init__(self, model, direction):
         super().__init__(model)
-        self.direction = direction # cardinal directions (n,w,s,e)
+        self.direction = direction
         self.path = []
 
     def go_straight(self):

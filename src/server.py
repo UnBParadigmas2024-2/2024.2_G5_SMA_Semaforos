@@ -3,16 +3,22 @@ from mesa.visualization import SolaraViz, make_space_component
 from models import *
 
 def agent_portrayal(agent):
-    if isinstance(agent, TrafficCell):
-        if agent.cell_type == "building":
-            return {"color": "tab:gray", "marker": "s", "zorder": 0}
-        if agent.cell_type == "intersection":
-            return {"color": "white", "marker": "s", "zorder": -1} 
     if isinstance(agent, TrafficLightAgent):
-        color = "tab:red" if agent.state == "red" else "tab:green"
-        return {"color": color, "size": 50, "zorder": 1}
-    if isinstance(agent, CarAgent):
-        return {"color": "tab:blue", "zorder": 0}
+        if agent.state == "red":
+            color = "red"
+        elif agent.state == "green":
+            color = "green"
+        elif agent.state == "yellow":
+            color = "yellow"
+        return {"color": color, "shape": "circle", "r": 0.5}
+    elif isinstance(agent, CarAgent):
+        return {"color": "blue", "shape": "rect", "w": 0.5, "h": 0.5}
+    elif isinstance(agent, TrafficCell):
+        if agent.cell_type == "building":
+            return {"color": "gray", "shape": "rect", "w": 1, "h": 1}
+        elif agent.cell_type == "intersection":
+            return {"color": "white", "shape": "rect", "w": 1, "h": 1}
+
 
 model_params = {
     "n": 4,
