@@ -23,6 +23,27 @@
 **Linguagens**: Python<br>
 **Tecnologias**: MESA<br>
 
+pip3 install -r requirements.txt
+
+python3 run.py
+
+## Commom errors
+
+### Geral
+
+Na instalação de dependências, se ocorrer o seguinte erro:
+`
+error: externally-managed-environment
+`
+Significa que o mesa é uma dependência gerenciada externamente. Para isso, instale as dependências utilizando uma virtualenv no projeto:
+`
+error: externally-managed-environment
+`
+python3 -m venv ~/py_envs
+source ~/py_envs/bin/activate
+python3 -m pip install -r requirements.txt
+`
+
 ### Linux
 
 ### MacOS
