@@ -62,7 +62,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | -- | -- | -- | -- |
 | Danilo Domingo Vitoriano Silva  |  |  |
 | Gabrielly Assunção |  |  |
-| Jackes Fonseca |  |  | 
+| Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | 
 | Karla Feliciano   |  |  |
 | Lucas Medeiros Rosa | |  | 
 | Luís Furtado de Araújo  |  |  |
@@ -76,6 +76,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 #### Gabrielly Assunção
 
 #### Jackes Fonseca
+Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, como por exemplo Compreensão do paradigma multiagente e modelagem de cenários realistas, uso de ferramentas e Frameworks e impacto dos parâmetros no desempenho
 
 #### Karla Feliciano
 
@@ -94,6 +95,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 #### Gabrielly Assunção
 
 #### Jackes Fonseca
+Atuei na criação do documento de estudo e análise do paradigma e projeto.
 
 #### Karla Feliciano
 
