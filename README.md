@@ -16,6 +16,11 @@
 | 19/0020814 |  Vinícius Roriz |
 
 ## Sobre 
+Este trabalho tem como objetivo explorar o uso do paradigma de sistemas multiagentes (MAS - Multi-Agent Systems) por meio da simulação de tráfego urbano. Para isso, foi utilizado o framework MESA, uma poderosa biblioteca Python voltada para a modelagem e simulação de agentes em ambientes discretos.
+
+Na simulação, agentes representam veículos que interagem em um ambiente composto por ruas, semáforos e cruzamentos. Cada agente possui comportamentos autônomos, como deslocar-se em uma direção específica, respeitar sinais de trânsito e evitar colisões com outros veículos. O ambiente é gerenciado de forma descentralizada, destacando a aplicação prática do paradigma multiagente para resolver problemas complexos, como o gerenciamento do fluxo de tráfego.
+
+Este projeto demonstra como conceitos fundamentais de sistemas multiagentes, como autonomia, interação e adaptação, podem ser aplicados em contextos reais, promovendo uma compreensão mais aprofundada do paradigma estudado.
 
 ## Uso e Screenshots
 
@@ -33,9 +38,7 @@ cd src
 solara run server.py
 ```
 
-## Common errors
-
-### Geral
+### Erros
 
 Se durante a instalação de dependências ocorrer o erro `error: externally-managed-environment`,    
 significa que o mesa é uma dependência gerenciada externamente. Para isso, instale as dependências utilizando uma virtualenv no projeto:
@@ -46,12 +49,7 @@ source semaforos/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
-### Linux
-
-### MacOS
-
-### Windows
-
+É imperativo o uso de uma versão do Python equivalente ou superior à 3.11, caso contrário ocorrem diversos erros que impedem a execução do projeto.
 
 ## Vídeo
 
@@ -64,7 +62,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | -- | -- | -- | -- |
 | Danilo Domingo Vitoriano Silva  |  |  |
 | Gabrielly Assunção |  |  |
-| Jackes Fonseca |  |  | 
+| Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
 | Karla Feliciano   |  |  |
 | Lucas Medeiros Rosa | |  | 
 | Luís Furtado de Araújo  |  |  |
@@ -78,6 +76,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 #### Gabrielly Assunção
 
 #### Jackes Fonseca
+Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, como por exemplo Compreensão do paradigma multiagente e modelagem de cenários realistas, uso de ferramentas e Frameworks e impacto dos parâmetros no desempenho
 
 #### Karla Feliciano
 
@@ -96,6 +95,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 #### Gabrielly Assunção
 
 #### Jackes Fonseca
+Atuei na criação do documento de estudo e análise do paradigma e projeto.
 
 #### Karla Feliciano
 
@@ -115,3 +115,9 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 > [MESA Introductory Tutorial](https://mesa.readthedocs.io/stable/tutorials/intro_tutorial.html#).  Acesso em: 22 jan. 2024.
 
 > [MESA Visualization Tutorial](https://mesa.readthedocs.io/stable/tutorials/visualization_tutorial.html).  Acesso em: 23 jan. 2024.
+
+> [MESA Examples: Conway's Game of Life (Fast)](https://github.com/projectmesa/mesa-examples/tree/main/examples/conways_game_of_life_fast).  Acesso em: 25 jan. 2024.
+
+> [MESA Migration Guide](https://mesa.readthedocs.io/latest/migration_guide.html).  Acesso em: 25 jan. 2024.
+
+- A maior parte dos exemplos disponíveis na internet foram criados usando o MESA 2.0. No *Migration Guide* estão listadas as mudanças que ocorreram no update 3.0, que é o que estamos utilizando.
