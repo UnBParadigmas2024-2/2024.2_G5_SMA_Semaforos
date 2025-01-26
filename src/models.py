@@ -86,42 +86,52 @@ class TrafficModel(mesa.Model):
             model_reporters={"Lights": "n"}, agent_reporters={"State": "state"}
         )
 
-        for x in range(self.grid.width):
-            for y in range(self.grid.height): # buildings
-                if (x<=3 and y<=3 or 
-                    y==5 and x<=3 or
-                    y>=7 and x<=3 or
-                    y==5 and x>=7 or
-                    y>=7 and x>=7 or
-                    y<=3 and x>=7 or
-                    x==5 and y<=3 or
-                    x==5 and y>=7 or
-                    x==5 and y==5):
-                    cell = TrafficCell(model=self, cell_type="building")
-                    self.grid.place_agent(cell, (x, y))
-                    
-                # Intersections
-                if (x==6 and y==4):
-                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
-                    self.grid.place_agent(cell, (x, y))
-                if (x==4 and y==4):
-                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="e")
-                    self.grid.place_agent(cell, (x, y))
-                if (x==6 and y==6):
-                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="w")
-                    self.grid.place_agent(cell, (x, y))
-                if (x==4 and y==6):
-                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
-                    self.grid.place_agent(cell, (x, y))
-        
-        car = CarAgent(self, direction="n")
-        self.grid.place_agent(car, (6,0))
+        def isStreet(width, height, x, y):
+            return x != round(width/2 - 2) and x != round(width/2) and y != round(height/2 - 2) and y != round(height/2)
 
         agents = TrafficLightAgent.create_agents(model=self, n=n)
-        self.grid.place_agent(agents[0], (3, 4))
-        self.grid.place_agent(agents[1], (4, 7))
-        self.grid.place_agent(agents[2], (6, 3))
-        self.grid.place_agent(agents[3], (7, 6))
+        for x in range(self.grid.width):
+            for y in range(self.grid.height): # buildings
+
+                # -- street in height
+                if (isStreet(width, height, x, y)):
+                    cell = TrafficCell(model=self, cell_type="building")
+                    self.grid.place_agent(cell, (x, y))
+
+                # --=-- Intersections --=--
+                if (x == round(width/2) and y == round(height/2) - 1):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                if (x == round(width/2) - 2 and y == round(height/2)):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="e")
+                    self.grid.place_agent(cell, (x, y))
+                if (x == round(width/2) and y == round(height/2)):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="w")
+                    self.grid.place_agent(cell, (x, y))
+                if (x == round(width/2) and y == round(height/2) - 2):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
+                    self.grid.place_agent(cell, (x, y))
+
+                # --=-- Traffic Lights --=--
+                if (x == round(width/2) - 1 and y == round(height/2) - 1):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[0], (round(width/2) - 3, round(height/2) - 2))
+                if (x == round(width/2) - 2 and y == round(height/2) + 1):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[1], (round(width/2) - 2, round(height/2) + 1))
+                if (x == round(width/2) + 1 and y == round(height/2)):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[2], (round(width/2) + 1, round(height/2)))
+                if (x == round(width/2) and y == round(height/2) - 3):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[3], (round(width/2), round(height/2) - 3))
+                
+        car = CarAgent(self, direction="n")
+        self.grid.place_agent(car, (6,0))
 
     
     def step(self):
