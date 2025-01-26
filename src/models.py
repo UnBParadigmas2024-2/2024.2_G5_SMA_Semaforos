@@ -100,6 +100,16 @@ class TrafficModel(mesa.Model):
                 if (x==4 and y==6):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
                     self.grid.place_agent(cell, (x, y))
+
+                # --=-- Traffic Lights --=--
+                if (x == round(width/2) - 1 and y == round(height/2) - 1):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[0], (round(width/2) - 3, round(height/2) - 2))
+                if (x == round(width/2) - 1 and y == round(height/2) - 1):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[0], (round(width/2) - 3, round(height/2) - 2))
                 
         
         car = CarAgent(self, direction="n")
