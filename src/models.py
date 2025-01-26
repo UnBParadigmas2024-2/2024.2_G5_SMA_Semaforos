@@ -87,17 +87,16 @@ class TrafficModel(mesa.Model):
                     self.grid.place_agent(cell, (x, y))
 
                 # --=-- Intersections --=--
-                if (x == 6 and y == 4):
+                if (x == round(width/2) and y == round(height/2) - 1):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
                     self.grid.place_agent(cell, (x, y))
-                if (x==4 and y==4):
+                if (x == round(width/2) - 2 and y == round(height/2)):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="e")
                     self.grid.place_agent(cell, (x, y))
-                    self.grid.place_agent(agents[1], (4, 7))
-                if (x==6 and y==6):
+                if (x == round(width/2) and y == round(height/2)):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="w")
                     self.grid.place_agent(cell, (x, y))
-                if (x==4 and y==6):
+                if (x == round(width/2) and y == round(height/2) - 2):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
                     self.grid.place_agent(cell, (x, y))
 
