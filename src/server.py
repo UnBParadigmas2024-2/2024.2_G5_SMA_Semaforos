@@ -26,11 +26,11 @@ def agent_portrayal(agent):
 
 model_params = {
     "n": 4,
-    "width": 11,
-    "height": 11,
+    "width": 40,
+    "height": 40,
 }
 
-tr_model = TrafficModel(n=4, width=11, height=11)
+tr_model = TrafficModel(n=4, width=40, height=40)
 
 SpaceGraph = make_space_component(agent_portrayal)
 
