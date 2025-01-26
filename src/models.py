@@ -106,17 +106,21 @@ class TrafficModel(mesa.Model):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
                     self.grid.place_agent(cell, (x, y))
                     self.grid.place_agent(agents[0], (round(width/2) - 3, round(height/2) - 2))
-                if (x == round(width/2) - 1 and y == round(height/2) - 1):
+                if (x == round(width/2) - 2 and y == round(height/2) + 1):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
                     self.grid.place_agent(cell, (x, y))
-                    self.grid.place_agent(agents[0], (round(width/2) - 3, round(height/2) - 2))
+                    self.grid.place_agent(agents[1], (round(width/2) - 2, round(height/2) + 1))
+                if (x == round(width/2) + 1 and y == round(height/2)):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[2], (round(width/2) + 1, round(height/2)))
+                if (x == round(width/2) and y == round(height/2) - 3):
+                    cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
+                    self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[3], (round(width/2), round(height/2) - 3))
                 
-        
         car = CarAgent(self, direction="n")
         self.grid.place_agent(car, (6,0))
-
-        self.grid.place_agent(agents[2], (6, 3))
-        self.grid.place_agent(agents[3], (7, 6))
 
     
     def step(self):
