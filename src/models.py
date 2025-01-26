@@ -37,17 +37,19 @@ class CarAgent(mesa.Agent):
 
     def go_straight(self):
         print(f"Car {self.unique_id} with direction {self.direction} is going straight at {self.pos}")
+        size = self.model.grid.width
+
         if self.direction == "n":
-            return (self.pos[0], self.pos[1]+1)
+            return (self.pos[0], (self.pos[1]+1) % size)
         
         if self.direction == "s":
-            return (self.pos[0], self.pos[1]-1)
+            return (self.pos[0], (self.pos[1]-1) % size)
         
         if self.direction == "w":
-            return (self.pos[0]-1, self.pos[1])
+            return ((self.pos[0]-1) % size, self.pos[1])
         
         if self.direction == "e":
-            return (self.pos[0]+1, self.pos[1])
+            return ((self.pos[0]+1) % size, self.pos[1])
     
     def turn(self):
         print(f"Car {self.unique_id} is turning at {self.pos}")
@@ -62,6 +64,19 @@ class CarAgent(mesa.Agent):
     
     def step(self):
         current_cell_contents = self.model.grid.get_cell_list_contents([self.pos])
+        next_position = self.go_straight()
+        next_cell_contents = self.model.grid.get_cell_list_contents([next_position])
+
+        for agent in next_cell_contents:
+            if isinstance(agent, TrafficLightAgent):
+                if agent.state == "red":
+                    print(f"Car {self.unique_id} is waiting at {self.pos} for green light")
+                    return
+            
+            if isinstance(agent, CarAgent):
+                return
+            
+                
         for agent in current_cell_contents:
             if isinstance(agent, TrafficCell) and agent.cell_type == "intersection":
                 if agent.allowed_turn == self.direction:
