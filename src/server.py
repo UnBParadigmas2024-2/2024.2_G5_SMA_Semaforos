@@ -24,6 +24,14 @@ def agent_portrayal(agent):
 
 
 model_params = {
+    "max_cars": {
+        "type": "SliderInt",
+        "value": 6,
+        "label": "Quantidade de carros",
+        "min": 4,
+        "max": 20,
+        "step": 1,
+    },
     "size": {
         "type": "SliderInt",
         "value": 17,
