@@ -74,40 +74,37 @@ class TrafficModel(mesa.Model):
             model_reporters={"Lights": "n"}, agent_reporters={"State": "state"}
         )
 
+        def isStreet(width, height, x, y):
+            return x != round(width/2 - 2) and x != round(width/2) and y != round(height/2 - 2) and y != round(height/2)
+
+        agents = TrafficLightAgent.create_agents(model=self, n=n)
         for x in range(self.grid.width):
             for y in range(self.grid.height): # buildings
-                if (x<=3 and y<=3 or 
-                    y==5 and x<=3 or
-                    y>=7 and x<=3 or
-                    y==5 and x>=7 or
-                    y>=7 and x>=7 or
-                    y<=3 and x>=7 or
-                    x==5 and y<=3 or
-                    x==5 and y>=7 or
-                    x==5 and y==5):
+
+                # -- street in height
+                if (isStreet(width, height, x, y)):
                     cell = TrafficCell(model=self, cell_type="building")
                     self.grid.place_agent(cell, (x, y))
-                    
-                # Intersections
-                if (x==6 and y==4):
+
+                # --=-- Intersections --=--
+                if (x == 6 and y == 4):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
                     self.grid.place_agent(cell, (x, y))
                 if (x==4 and y==4):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="e")
                     self.grid.place_agent(cell, (x, y))
+                    self.grid.place_agent(agents[1], (4, 7))
                 if (x==6 and y==6):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="w")
                     self.grid.place_agent(cell, (x, y))
                 if (x==4 and y==6):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
                     self.grid.place_agent(cell, (x, y))
+                
         
         car = CarAgent(self, direction="n")
         self.grid.place_agent(car, (6,0))
 
-        agents = TrafficLightAgent.create_agents(model=self, n=n)
-        self.grid.place_agent(agents[0], (3, 4))
-        self.grid.place_agent(agents[1], (4, 7))
         self.grid.place_agent(agents[2], (6, 3))
         self.grid.place_agent(agents[3], (7, 6))
 
