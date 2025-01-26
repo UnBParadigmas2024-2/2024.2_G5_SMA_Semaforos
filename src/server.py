@@ -8,21 +8,21 @@ traffic_light_time = solara.reactive(4)
 map_size = solara.reactive(11)
 
 def agent_portrayal(agent):
+    if isinstance(agent, TrafficCell):
+        if agent.cell_type == "building":
+            return {"color": "tab:gray", "marker": "s", "zorder": 0}
+        if agent.cell_type == "intersection":
+            return {"color": "white", "marker": "s", "zorder": -1} 
     if isinstance(agent, TrafficLightAgent):
-        if agent.state == "red":
-            color = "red"
-        elif agent.state == "green":
+        if agent.state == "green":
             color = "green"
         elif agent.state == "yellow":
             color = "yellow"
-        return {"color": color, "shape": "circle", "r": 0.5}
-    elif isinstance(agent, CarAgent):
-        return {"color": "blue", "shape": "rect", "w": 0.5, "h": 0.5}
-    elif isinstance(agent, TrafficCell):
-        if agent.cell_type == "building":
-            return {"color": "gray", "shape": "rect", "w": 1, "h": 1}
-        elif agent.cell_type == "intersection":
-            return {"color": "white", "shape": "rect", "w": 1, "h": 1}
+        else:
+            color = "red"
+        return {"color": color, "size": 50, "zorder": 1}
+    if isinstance(agent, CarAgent):
+        return {"color": "tab:blue", "zorder": 0}
 
 model_params = {
     "n": 4,
