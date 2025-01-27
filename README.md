@@ -32,9 +32,8 @@ Para instalar o MESA e suas dependências, utilize o seguinte comando:
 ```
 pip3 install -r requirements.txt
 ```
-Para executar o projeto, entre na pasta `src` e execute o servidor:
+Para executar o projeto, basta executar o servidor:
 ```
-cd src
 solara run server.py
 ```
 
