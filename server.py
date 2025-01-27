@@ -1,4 +1,4 @@
-from mesa.visualization import SolaraViz, make_space_component
+from mesa.visualization import SolaraViz, make_space_component, make_plot_component
 
 from src.agents.car import CarAgent
 from src.agents.pedestrian import PedestrianAgent
@@ -24,7 +24,7 @@ def agent_portrayal(agent):
         return {"color": f"tab:{car_color}", "marker": "h", "zorder": 0}
 
     elif isinstance(agent, PedestrianAgent): # Pedestres
-        return {"color": "tab:pink", "marker": "h", "zorder": 0}
+        return {"color": "tab:pink", "marker": "p", "zorder": 0}
     
     elif isinstance(agent, TrafficCell): # Terreno
         if agent.cell_type == "building":
@@ -32,7 +32,6 @@ def agent_portrayal(agent):
         
         elif agent.cell_type == "intersection":
             return {"marker": "", "zorder": -1}
-
 
 model_params = {
     "max_cars": {
@@ -82,15 +81,24 @@ model_params = {
         "min": 5,
         "max": 100,
         "step": 1,
+    },
+    "distraction":{
+        "type": "SliderFloat",
+        "value": 0.5,
+        "label": "Nível de distração dos pedestres",
+        "min": 0.01,
+        "max": 1,
+        "step": 0.01,
     }
 }
 
 tr_model = TrafficModel()
 spaceGraph = make_space_component(agent_portrayal)
+pedestrianPlot = make_plot_component(["Número de carros","Número de pedestres","Número de colisões"])
 
 page = SolaraViz(
     tr_model,
-    components=[spaceGraph],
+    components=[spaceGraph, pedestrianPlot],
     model_params=model_params,
     name="Modelo de tráfego",
 )

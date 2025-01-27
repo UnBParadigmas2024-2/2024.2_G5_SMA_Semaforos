@@ -8,8 +8,10 @@ from src.agents.traffic_light import TrafficLightAgent
         
 
 class TrafficModel(mesa.Model):
-    def __init__(self, max_cars=12, max_pedestrians=12, size=17, green_timer=10, red_timer=20, yellow_timer=5):
+    def __init__(self, max_cars=12, max_pedestrians=12, size=17, green_timer=10, red_timer=20, yellow_timer=5, distraction=0.01):
+        super().__init__()
         self.directions = ["n","s","e","w"]
+        self.distraction = distraction
         self.max_cars = max_cars
         self.max_pedestrians = max_pedestrians
         self.size = size
@@ -19,9 +21,9 @@ class TrafficModel(mesa.Model):
 
         self.grid = mesa.space.MultiGrid(size, size, True)
         self.datacollector = mesa.DataCollector(
-            model_reporters={"num_of_cars": "self.cars",
-                             "num_of_pedestrians": "self.pedestrians",
-                             "num_of_collisions": "self.car_and_pedestrian_collision"},
+            model_reporters={"Número de carros": lambda m: m.cars,
+                             "Número de pedestres": lambda m: m.pedestrians,
+                             "Número de colisões": lambda m: m.car_and_pedestrian_collision},
             agent_reporters={"State": "state"}
         )
 
@@ -31,7 +33,9 @@ class TrafficModel(mesa.Model):
 
         for direction in self.directions:
             self.spawn_car(direction)
-            self.spawn_pedestrian(direction)
+            self.spawn_pedestrian(direction, distraction)
+        
+        self.datacollector.collect(self)
 
     def place_traffic_lights(self, green_timer, red_timer, yellow_timer):
         # western traffic light
@@ -114,15 +118,14 @@ class TrafficModel(mesa.Model):
             self.grid.place_agent(CarAgent(self, direction=direction), self.starting_pos(direction))
             self.cars += 1
 
-    def spawn_pedestrian(self, direction: str):
+    def spawn_pedestrian(self, direction: str, distraction:float):
         starting_pos = self.pedestrian_starting_pos(direction)
 
         print(f"Pedestrian being spawned at {starting_pos}")
-        self.grid.place_agent(PedestrianAgent(self, direction=direction), starting_pos)
+        self.grid.place_agent(PedestrianAgent(self, direction=direction, distraction=distraction), starting_pos)
         self.pedestrians += 1
 
     def step(self):
-        self.datacollector.collect(self)
         self.agents.do("step")
 
         if self.cars < self.max_cars:
@@ -132,5 +135,7 @@ class TrafficModel(mesa.Model):
         if self.pedestrians < self.max_pedestrians:
             print(f"Pedestrians count: {self.pedestrians}, max pedestrians {self.max_pedestrians}")
             for direction in self.directions:
-                self.spawn_pedestrian(direction)
+                self.spawn_pedestrian(direction, self.distraction)
+
+        self.datacollector.collect(self)
         

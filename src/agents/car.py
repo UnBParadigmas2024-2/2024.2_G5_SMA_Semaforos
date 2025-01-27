@@ -10,6 +10,8 @@ class CarAgent(mesa.Agent):
         super().__init__(model)
         self.direction = direction
         self.path = []
+        self.collision = False
+        self.timer = 0
 
     def go_straight(self):
         print(f"Car {self.unique_id} with direction {self.direction} is going straight at {self.pos}")
@@ -59,9 +61,22 @@ class CarAgent(mesa.Agent):
                     if action:
                         action()
 
-            from src.agents.pedestrian import PedestrianAgent # This import avoid circular dependency
+            from src.agents.pedestrian import PedestrianAgent # This import is to avoid circular dependency
 
             if isinstance(agent, PedestrianAgent):
                 self.model.car_and_pedestrian_collision += 1
                 self.collision = True
+                agent.remove()
+                self.model.grid.remove_agent(agent)
+                self.model.pedestrians -= 1
+        
+        if self.collision:
+            if self.timer < 30:
+                self.timer += 1
+                return
+            self.remove()
+            self.model.grid.remove_agent(self)
+            self.model.cars -= 1
+            return
+
         self.model.grid.move_agent(self, self.go_straight())

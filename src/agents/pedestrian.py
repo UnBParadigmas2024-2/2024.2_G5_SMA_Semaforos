@@ -8,7 +8,7 @@ from src.agents.car import CarAgent
 
 
 class PedestrianAgent(mesa.Agent):
-    def __init__(self, model, direction, distraction: float = 0.005):
+    def __init__(self, model, direction, distraction:float):
         super().__init__(model)
         self.direction = direction
         self.distraction = distraction
@@ -16,7 +16,6 @@ class PedestrianAgent(mesa.Agent):
 
     def get_next_cell(self) -> tuple[int, int]:
         size = self.model.grid.width
-
         if self.direction == "n":
             return self.pos[0], (self.pos[1] + 1) % size
 
@@ -76,6 +75,9 @@ class PedestrianAgent(mesa.Agent):
         return False
 
     def step(self):
+        if not self.pos:
+            return
+
         print("Executing pedestrian step")
         agents_on_next_cell = self.model.grid.get_cell_list_contents([self.get_next_cell()])
         agents_on_left_diagonal_cell = self.model.grid.get_cell_list_contents([self.get_left_diagonal_cell()])
@@ -86,7 +88,8 @@ class PedestrianAgent(mesa.Agent):
             or
             (not self.is_traffic_light_red(agents_on_next_cell)
             and not self.is_car_close(agents_on_left_diagonal_cell)
-            and not self.is_car_close(agents_on_right_diagonal_cell))
+            and not self.is_car_close(agents_on_right_diagonal_cell)
+            and not self.is_car_close(agents_on_next_cell))
         )
 
         distracted_walking = random.uniform(0, 1)
