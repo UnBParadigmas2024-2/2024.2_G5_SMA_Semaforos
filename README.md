@@ -60,7 +60,7 @@ Clique [aqui]() para assistir o vídeo.
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios (ex. links para commits)
 | -- | -- | -- | -- |
-| Danilo Domingo Vitoriano Silva  | Criação da primeira versão de inputs para os usuários | Boa  | [Inputs]([Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86))
+| Danilo Domingo Vitoriano Silva  | Criação da primeira versão de inputs para os usuários | Boa  | ([Inputs](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86))
 | Gabrielly Assunção |  |  |
 | Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
 | Karla Feliciano   |  |  |
