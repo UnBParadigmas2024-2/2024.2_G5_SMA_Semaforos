@@ -60,7 +60,7 @@ Clique [aqui]() para assistir o vídeo.
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios (ex. links para commits)
 | -- | -- | -- | -- |
-| Danilo Domingo Vitoriano Silva  |  |  |
+| Danilo Domingo Vitoriano Silva  | Criação da primeira versão de inputs para os usuários | Boa  | [Inputs]([Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86))
 | Gabrielly Assunção |  |  |
 | Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
 | Karla Feliciano   |  |  |
@@ -72,6 +72,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 ### I. Licões Aprendidas
 
 #### Danilo Domingo
+Foi um experiência bem diferente do convencional, a onde tive que aprender como cada agente se comporta a entrar em contato com outro e como eles podem trabalhar de forma autônoma.
 
 #### Gabrielly Assunção
 
@@ -92,6 +93,7 @@ Trabalhar com agentes autônomos destacou a importância da descentralização e
 ### III. Contribuições e Fragilidades
 
 #### Danilo Domingo
+Fiz a primeira versão de inputs, a onde os usuários informavam a quantidade de carros, tamanho do mapa, etc, porém com o desenvolvimento do código ele precisou ser refatorado para que se adequasse melhor aos novos parâmetros.
 
 #### Gabrielly Assunção
 
