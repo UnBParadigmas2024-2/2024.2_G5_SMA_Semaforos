@@ -109,7 +109,38 @@ Trabalhei na conceitualização do projeto e na implementação básica dos agen
 Também fiquei responsável pela correção de erros no código e a refatoração de algumas implementações.
 
 ### IV. Trabalhos Futuros
-
+Embora o modelo atual tenha alcançado seus objetivos iniciais, há diversas possibilidades de
+extensão e aprimoramento que podem ampliar o impacto e a aplicabilidade prática do trabalho.
+Entre elas:
+Expansão do modelo para incluir pedestres e ciclistas:
+A inclusão de agentes representando pedestres e ciclistas permitiria analisar a interação entre
+diferentes modos de transporte, contribuindo para o planejamento de soluções mais inclusivas
+e seguras para todos os usuários das vias urbanas. Essa expansão poderia incluir a simulação
+de faixas exclusivas, cruzamentos compartilhados e o impacto de medidas como passarelas e
+ciclovias.
+- **Avaliação de políticas de tráfego diversificadas:**
+Simulação de rodízio de veículos para reduzir congestionamentos em horários de pico.
+Avaliação de estratégias para mudanças dinâmicas no tempo dos semáforos, considerando
+diferentes horários do dia ou condições de tráfego em tempo real.
+Testes de impacto de novas políticas públicas, como tarifas de congestionamento urbano (e.g.,
+pedágio em áreas centrais) ou incentivos ao transporte coletivo.
+- **Integração com aprendizado de máquina:**
+O uso de aprendizado de máquina pode ajudar a melhorar a adaptação dos agentes,
+permitindo que aprendam a reagir de forma mais eficiente às mudanças no ambiente de
+tráfego. Isso incluiria a capacidade de prever congestionamentos e ajustar
+comportamentos em tempo real.
+- **Simulação de redes urbanas reais:**
+A aplicação do modelo em redes viárias reais, utilizando dados provenientes de fontes
+como OpenStreetMap ou sistemas de monitoramento de tráfego, poderia validar ainda
+mais sua aplicabilidade e relevância prática.
+- **Otimização computacional e escalabilidade:**
+Investir em técnicas de paralelismo e distribuição de carga, utilizando tecnologias como
+MPI ou integração com a nuvem, permitiria simular cenários maiores e mais complexos
+sem comprometer o desempenho.
+- **Aplicação em contextos emergentes de mobilidade:**
+Investigar o impacto de novas tecnologias, como veículos autônomos e sistemas de
+carona compartilhada, no tráfego urbano. Esses cenários poderiam fornecer insights
+sobre como preparar as cidades para o futuro da mobilidade
 
 ## Fontes
 
