@@ -11,34 +11,23 @@ class TrafficCell(mesa.Agent):
         pass
 
 class TrafficLightAgent(mesa.Agent):
-    def __init__(self, model, state="red", group="vertical"):
+    def __init__(self, model, state="red"):
         super().__init__(model)
         self.state = state
         self.timer = 0
-        self.group = group
 
     def step(self):
-        if self.group == "vertical":
-            if self.model.vertical_state == "green":
-                self.state = "green"
-            elif self.model.vertical_state == "yellow":
-                self.state = "yellow"
-            else:
-                self.state = "red"
-        elif self.group == "horizontal":
-            if self.model.horizontal_state == "green":
-                self.state = "green"
-            elif self.model.horizontal_state == "yellow":
-                self.state = "yellow"
-            else:
-                self.state = "red"
+        self.timer += 1
+        if self.state == "red" and self.timer > 23:
+            self.state = "green"
+            self.timer = 0
+        elif self.state == "green" and self.timer > 10:
+            self.state = "yellow"
+            self.timer = 0
+        elif self.state == "yellow" and self.timer > 10:
+            self.state = "red"
+            self.timer = 0
 
-    def create_agents(model, n):
-        agents = []
-        for i in range(n):
-            agent = TrafficLightAgent(model=model, state="red")
-            agents.append(agent)
-        return agents
 
 class CarAgent(mesa.Agent):
     def __init__(self, model, direction):
@@ -80,81 +69,95 @@ class CarAgent(mesa.Agent):
                     if action:
                         action()
         self.model.grid.move_agent(self, self.go_straight())
-
+        
 
 class TrafficModel(mesa.Model):
-    def __init__(self, n, width, height, seed=None):
-        super().__init__(seed=seed)
-        self.num_agents = n
-        self.grid = mesa.space.MultiGrid(width, height, True)
+    def __init__(self, max_cars=12, size=17):
+        super().__init__()
+        self.directions = ["n","s","e","w"]
+        self.max_cars = max_cars
+        self.size = size
+        self.cars = 0
+
+        self.grid = mesa.space.MultiGrid(size, size, True)
         self.datacollector = mesa.DataCollector(
             model_reporters={"Lights": "n"}, agent_reporters={"State": "state"}
         )
 
-        self.schedule = mesa.time.RandomActivation(self)
-
-        self.vertical_state = "green"
-        self.horizontal_state = "red"
-        self.timer = 0
-
-        self.traffic_lights = []
-        for i in range(4):
-            group = "vertical" if i < 2 else "horizontal"
-            agent = TrafficLightAgent(model=self, state="red", group=group)
-            self.traffic_lights.append(agent)
-
         def isStreet(width, height, x, y):
             return x != round(width/2 - 2) and x != round(width/2) and y != round(height/2 - 2) and y != round(height/2)
 
+        agents = [TrafficLightAgent(model=self, state="green"), 
+                  TrafficLightAgent(model=self, state="red"), 
+                  TrafficLightAgent(model=self, state="green"), 
+                  TrafficLightAgent(model=self, state="red")]
+        
         for x in range(self.grid.width):
-            for y in range(self.grid.height): # buildings
-
-                # -- street in height
-                if (isStreet(width, height, x, y)):
+            for y in range(self.grid.height): 
+                if (isStreet(size, size, x, y)): # buildings
                     cell = TrafficCell(model=self, cell_type="building")
                     self.grid.place_agent(cell, (x, y))
 
                 # --=-- Intersections --=--
-                if (x == round(width/2) and y == round(height/2) - 2):
+                if (x == round(size/2) and y == round(size/2) - 2):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="n")
                     self.grid.place_agent(cell, (x, y))
-                if (x == round(width/2) - 2 and y == round(height/2) - 2):
+
+                if (x == round(size/2) - 2 and y == round(size/2) - 2):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="e")
                     self.grid.place_agent(cell, (x, y))
-                if (x == round(width/2) and y == round(height/2)):
+
+                if (x == round(size/2) and y == round(size/2)):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="w")
                     self.grid.place_agent(cell, (x, y))
-                if (x == round(width/2) - 2 and y == round(height/2)):
+
+                if (x == round(size/2) - 2 and y == round(size/2)):
                     cell = TrafficCell(model=self, cell_type="intersection", allowed_turn="s")
                     self.grid.place_agent(cell, (x, y))
 
-        self.grid.place_agent(self.traffic_lights[0], (round(width/2) - 3, round(height/2) - 2))
-        self.grid.place_agent(self.traffic_lights[1], (round(width/2) - 2, round(height/2) + 1))
-        self.grid.place_agent(self.traffic_lights[2], (round(width / 2) + 1, round(height / 2)))
-        self.grid.place_agent(self.traffic_lights[3], (round(width / 2), round(height / 2) - 3))
+                # --=-- Traffic Lights --=--
+                if (x == round(size/2) - 3 and y == round(size/2) - 2):
+                    self.grid.place_agent(agents[0], (x, y))
 
-        car = CarAgent(self, direction="n")
-        self.grid.place_agent(car, (round(width/2), 0))
+                if (x == round(size/2) - 2 and y == round(size/2) + 1):
+                    self.grid.place_agent(agents[1], (x, y))
 
-        for agent in self.traffic_lights + [car]:
-            self.schedule.add(agent)
+                if (x == round(size/2) + 1 and y == round(size/2)):
+                    self.grid.place_agent(agents[2], (x, y))
+
+                if (x == round(size/2) and y == round(size/2) - 3):
+                    self.grid.place_agent(agents[3], (x, y))
+                
+        self.grid.place_agent(CarAgent(self, direction="n"), self.starting_pos("n"))
+        self.cars += 1
+        self.grid.place_agent(CarAgent(self, direction="s"), self.starting_pos("s"))
+        self.cars += 1
+        self.grid.place_agent(CarAgent(self, direction="e"), self.starting_pos("e"))
+        self.cars += 1
+        self.grid.place_agent(CarAgent(self, direction="w"), self.starting_pos("w"))
+        self.cars += 1
+
+    def starting_pos(self, direction):
+        if direction == "s":
+            return (round(self.size/2)-2, self.size-1)
+        if direction == "e":
+            return (0, round(self.size/2)-2)
+        if direction == "n":
+            return (round(self.size/2), 0)
+        if direction == "w":
+            return (self.size-1, round(self.size/2))
+        
+    def spawn_car(self, direction:str):
+        cell_contents = self.grid.get_cell_list_contents([self.starting_pos(direction)])
+        if not cell_contents:
+            self.grid.place_agent(CarAgent(self, direction=direction), self.starting_pos(direction))
+            self.cars += 1
 
     def step(self):
-        self.timer += 1
-        if self.timer > 10:
-            if self.vertical_state == "green":
-                self.vertical_state = "yellow"
-            elif self.vertical_state == "yellow":
-                self.vertical_state = "red"
-                self.horizontal_state = "green"
-            elif self.horizontal_state == "green":
-                self.horizontal_state = "yellow"
-            elif self.horizontal_state == "yellow":
-                self.horizontal_state = "red"
-                self.vertical_state = "green"
-            self.timer = 0
+        self.datacollector.collect(self)
+        self.agents.do("step")
 
-        for agent in self.traffic_lights:
-            agent.step()
-
-        self.schedule.step()
+        if self.cars < self.max_cars:
+            for direction in self.directions:
+                self.spawn_car(direction)
+        
