@@ -88,6 +88,21 @@ Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, co
 Trabalhar com agentes autônomos destacou a importância da descentralização em sistemas complexos. Cada agente toma decisões localmente, mas as interações entre eles geram comportamentos emergentes, como congestionamentos e padrões de fluxo no tráfego.
 
 ### II. Percepções
+Este trabalho demonstrou a aplicabilidade do paradigma multiagente (MAS) na simulação de
+tráfego urbano, evidenciando como a interação entre agentes pode fornecer uma visão
+detalhada e realista de fenômenos complexos, como congestionamentos e padrões de fluxo. O
+modelo implementado destacou-se pela capacidade de representar comportamentos individuais
+e suas interações no ambiente simulado, permitindo a análise de métricas relevantes, como
+tempo médio de viagem, tempos de espera em cruzamentos e padrões de congestionamento.
+Os resultados mostraram que o uso de sistemas multiagentes oferece uma ferramenta flexível
+e adaptável para explorar soluções de mobilidade urbana, além de abrir caminhos para
+aplicações em planejamento de infraestrutura e gestão de tráfego em tempo real. A
+implementação utilizando o framework MESA reforçou a simplicidade e eficiência na criação de
+cenários customizados, contribuindo para o aprendizado e experimentação no campo da
+simulação.
+Além disso, o trabalho evidenciou os desafios inerentes a simulações realistas, como a
+necessidade de calibrar parâmetros adequados e as limitações computacionais quando se lida
+com cenários de grande escala.
 
 ### III. Contribuições e Fragilidades
 
