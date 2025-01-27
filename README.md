@@ -15,12 +15,19 @@
 | 18/0042661 | Luís Furtado de Araújo |
 | 19/0020814 |  Vinícius Roriz |
 
-## Sobre 
+## Sobre
+
+<p align=justify>
 Este trabalho tem como objetivo explorar o uso do paradigma de sistemas multiagentes (MAS - Multi-Agent Systems) por meio da simulação de tráfego urbano. Para isso, foi utilizado o framework MESA, uma poderosa biblioteca Python voltada para a modelagem e simulação de agentes em ambientes discretos.
+</p>
 
+<p align=justify>
 Na simulação, agentes representam veículos que interagem em um ambiente composto por ruas, semáforos e cruzamentos. Cada agente possui comportamentos autônomos, como deslocar-se em uma direção específica, respeitar sinais de trânsito e evitar colisões com outros veículos. O ambiente é gerenciado de forma descentralizada, destacando a aplicação prática do paradigma multiagente para resolver problemas complexos, como o gerenciamento do fluxo de tráfego.
+</p>
 
+<p align=justify>
 Este projeto demonstra como conceitos fundamentais de sistemas multiagentes, como autonomia, interação e adaptação, podem ser aplicados em contextos reais, promovendo uma compreensão mais aprofundada do paradigma estudado.
+</p>
 
 ## Uso e Screenshots
 
@@ -71,23 +78,46 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 ### I. Licões Aprendidas
 
 #### Danilo Domingo
+
+<p align=justify>
 Foi um experiência bem diferente do convencional, a onde tive que aprender como cada agente se comporta a entrar em contato com outro e como eles podem trabalhar de forma autônoma.
+</p>
 
 #### Gabrielly Assunção
 
+<p align=justify>
+Minha principal tarefa foi desenvolver a lógica que gerencia a alternância entre os estados (verde, amarelo e vermelho) de forma sincronizada e eficiente. Durante esse processo, enfrentei dificuldades em compreender o paradigma de sistemas multiagentes, pois trata-se de uma abordagem descentralizada que exige uma mudança de mentalidade em relação aos paradigmas mais tradicionais de programação. Essa experiência me ajudou a desenvolver uma nova perspectiva sobre como os agentes podem interagir de maneira autônoma
+</p>
+
 #### Jackes Fonseca
+
+<p align=justify>
 Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, como por exemplo Compreensão do paradigma multiagente e modelagem de cenários realistas, uso de ferramentas e Frameworks e impacto dos parâmetros no desempenho
+</p>
 
 #### Karla Feliciano
+<p align=justify>
+</p>
 
 #### Lucas Medeiros
 
+<p align=justify>
+</p>
+
 #### Luís Furtado
 
+<p align=justify>
+</p>
+
 #### Vinícius Roriz
+
+<p align=justify>
 Trabalhar com agentes autônomos destacou a importância da descentralização em sistemas complexos. Cada agente toma decisões localmente, mas as interações entre eles geram comportamentos emergentes, como congestionamentos e padrões de fluxo no tráfego.
+</p>
 
 ### II. Percepções
+
+<p align=justify>
 Este trabalho demonstrou a aplicabilidade do paradigma multiagente (MAS) na simulação de
 tráfego urbano, evidenciando como a interação entre agentes pode fornecer uma visão
 detalhada e realista de fenômenos complexos, como congestionamentos e padrões de fluxo. O
@@ -103,28 +133,58 @@ simulação.
 Além disso, o trabalho evidenciou os desafios inerentes a simulações realistas, como a
 necessidade de calibrar parâmetros adequados e as limitações computacionais quando se lida
 com cenários de grande escala.
+</p>
+
+### Análise do Paradigma
+
+<p align=justify>
+Confira o [documento de estudo e análise do paradigma sistemas multiagentes](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/blob/9be54153aa2ea26f8fd6df49b3253d0b35dccb70/docs/Sistemas%20multiagentes.docx.pdf), que explora os fundamentos teóricos e práticos desse modelo computacional, destacando sua aplicação na simulação de tráfego urbano com o framework MESA.
+</p>
 
 ### III. Contribuições e Fragilidades
 
 #### Danilo Domingo
+
+<p align=justify>
 Fiz a primeira versão de inputs, a onde os usuários informavam a quantidade de carros, tamanho do mapa, etc, porém com o desenvolvimento do código ele precisou ser refatorado para que se adequasse melhor aos novos parâmetros.
+</p>
 
 #### Gabrielly Assunção
 
+<p align=justify>
+Minha contribuição principal foi a implementação do agente semáforo e o desenvolvimento da lógica de interação entre os estados de verde, amarelo e vermelho, que são cruciais para a simulação do fluxo de tráfego.Entretanto, uma das fragilidades que enfrentei foi a minha dificuldade inicial em compreender e aplicar o paradigma multiagente de maneira eficiente. A descentralização e a autonomia dos agentes foram conceitos desafiadores de assimilar no início do projeto, especialmente em relação ao entendimento de como as interações locais resultam em comportamentos no sistema global.
+</p>
+
 #### Jackes Fonseca
+
+<p align=justify>
 Atuei na criação do documento de estudo e análise do paradigma e projeto.
+</p>
 
 #### Karla Feliciano
 
+<p align=justify>
+</p>
+
 #### Lucas Medeiros
+
+<p align=justify>
+</p>
 
 #### Luís Furtado
 
+<p align=justify>
+</p>
+
 #### Vinícius Roriz
+
+<p align=justify>
 Trabalhei na conceitualização do projeto e na implementação básica dos agentes e do modelo. A maior parte do tempo foi gasto pesquisando a documentação pois os exemplos disponíveis no repositório do MESA utilizam uma versão mais antiga, e muito foi alterado desde então.  
 Também fiquei responsável pela correção de erros no código e a refatoração de algumas implementações.
+</p>
 
 ### IV. Trabalhos Futuros
+
 Embora o modelo atual tenha alcançado seus objetivos iniciais, há diversas possibilidades de
 extensão e aprimoramento que podem ampliar o impacto e a aplicabilidade prática do trabalho.
 Entre elas:
