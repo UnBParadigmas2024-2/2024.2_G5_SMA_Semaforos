@@ -1,5 +1,10 @@
 from mesa.visualization import SolaraViz, make_space_component
-from models import *
+
+from src.agents.car import CarAgent
+from src.agents.pedestrian import PedestrianAgent
+from src.agents.traffic_cell import TrafficCell
+from src.agents.traffic_light import TrafficLightAgent
+from src.traffic_model import TrafficModel
 
 
 def agent_portrayal(agent):
@@ -13,11 +18,17 @@ def agent_portrayal(agent):
         return {"color": color, "size":50, "zorder": 1}
     
     elif isinstance(agent, CarAgent): # Carros
-        return {"color": "tab:blue", "marker": "h", "zorder": 0}
+        car_color = "blue"
+        if agent.collision:
+            car_color="gray"
+        return {"color": f"tab:{car_color}", "marker": "h", "zorder": 0}
+
+    elif isinstance(agent, PedestrianAgent): # Pedestres
+        return {"color": "tab:pink", "marker": "h", "zorder": 0}
     
     elif isinstance(agent, TrafficCell): # Terreno
         if agent.cell_type == "building":
-            return {"color": "tab:gray", "marker": "s", "zorder": 0}
+            return {"color": "tab:gray", "marker": "s", "zorder": -1}
         
         elif agent.cell_type == "intersection":
             return {"marker": "", "zorder": -1}
@@ -30,6 +41,14 @@ model_params = {
         "label": "Quantidade de carros",
         "min": 4,
         "max": 40,
+        "step": 1,
+    },
+    "max_pedestrians": {
+        "type": "SliderInt",
+        "value": 6,
+        "label": "Quantidade de pedestres",
+        "min": 4,
+        "max": 20,
         "step": 1,
     },
     "size": {
