@@ -89,6 +89,21 @@ Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, co
 Trabalhar com agentes autônomos destacou a importância da descentralização em sistemas complexos. Cada agente toma decisões localmente, mas as interações entre eles geram comportamentos emergentes, como congestionamentos e padrões de fluxo no tráfego.
 
 ### II. Percepções
+Este trabalho demonstrou a aplicabilidade do paradigma multiagente (MAS) na simulação de
+tráfego urbano, evidenciando como a interação entre agentes pode fornecer uma visão
+detalhada e realista de fenômenos complexos, como congestionamentos e padrões de fluxo. O
+modelo implementado destacou-se pela capacidade de representar comportamentos individuais
+e suas interações no ambiente simulado, permitindo a análise de métricas relevantes, como
+tempo médio de viagem, tempos de espera em cruzamentos e padrões de congestionamento.
+Os resultados mostraram que o uso de sistemas multiagentes oferece uma ferramenta flexível
+e adaptável para explorar soluções de mobilidade urbana, além de abrir caminhos para
+aplicações em planejamento de infraestrutura e gestão de tráfego em tempo real. A
+implementação utilizando o framework MESA reforçou a simplicidade e eficiência na criação de
+cenários customizados, contribuindo para o aprendizado e experimentação no campo da
+simulação.
+Além disso, o trabalho evidenciou os desafios inerentes a simulações realistas, como a
+necessidade de calibrar parâmetros adequados e as limitações computacionais quando se lida
+com cenários de grande escala.
 
 ### III. Contribuições e Fragilidades
 
@@ -111,7 +126,38 @@ Trabalhei na conceitualização do projeto e na implementação básica dos agen
 Também fiquei responsável pela correção de erros no código e a refatoração de algumas implementações.
 
 ### IV. Trabalhos Futuros
-
+Embora o modelo atual tenha alcançado seus objetivos iniciais, há diversas possibilidades de
+extensão e aprimoramento que podem ampliar o impacto e a aplicabilidade prática do trabalho.
+Entre elas:
+Expansão do modelo para incluir pedestres e ciclistas:
+A inclusão de agentes representando pedestres e ciclistas permitiria analisar a interação entre
+diferentes modos de transporte, contribuindo para o planejamento de soluções mais inclusivas
+e seguras para todos os usuários das vias urbanas. Essa expansão poderia incluir a simulação
+de faixas exclusivas, cruzamentos compartilhados e o impacto de medidas como passarelas e
+ciclovias.
+- **Avaliação de políticas de tráfego diversificadas:**
+Simulação de rodízio de veículos para reduzir congestionamentos em horários de pico.
+Avaliação de estratégias para mudanças dinâmicas no tempo dos semáforos, considerando
+diferentes horários do dia ou condições de tráfego em tempo real.
+Testes de impacto de novas políticas públicas, como tarifas de congestionamento urbano (e.g.,
+pedágio em áreas centrais) ou incentivos ao transporte coletivo.
+- **Integração com aprendizado de máquina:**
+O uso de aprendizado de máquina pode ajudar a melhorar a adaptação dos agentes,
+permitindo que aprendam a reagir de forma mais eficiente às mudanças no ambiente de
+tráfego. Isso incluiria a capacidade de prever congestionamentos e ajustar
+comportamentos em tempo real.
+- **Simulação de redes urbanas reais:**
+A aplicação do modelo em redes viárias reais, utilizando dados provenientes de fontes
+como OpenStreetMap ou sistemas de monitoramento de tráfego, poderia validar ainda
+mais sua aplicabilidade e relevância prática.
+- **Otimização computacional e escalabilidade:**
+Investir em técnicas de paralelismo e distribuição de carga, utilizando tecnologias como
+MPI ou integração com a nuvem, permitiria simular cenários maiores e mais complexos
+sem comprometer o desempenho.
+- **Aplicação em contextos emergentes de mobilidade:**
+Investigar o impacto de novas tecnologias, como veículos autônomos e sistemas de
+carona compartilhada, no tráfego urbano. Esses cenários poderiam fornecer insights
+sobre como preparar as cidades para o futuro da mobilidade
 
 ## Fontes
 
