@@ -66,7 +66,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Karla Feliciano   |  |  |
 | Lucas Medeiros Rosa | |  | 
 | Luís Furtado de Araújo  |  |  |
-| Vinícius Roriz | |  | 
+| Vinícius Roriz | Criação das classes TrafficLightAgent, CarAgent, TrafficModel, TrafficCell. Implementação dos parâmetros de modelo.  | Excelente | [Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86), [Carro](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/76f5d374567221b6649e8ba7957c738bba4b82ae), [Parâmetros](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/f5a05af0178064b05223b7710e1cee0a4d65ef91)
 
 ## Outros 
 ### I. Licões Aprendidas
@@ -85,6 +85,7 @@ Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, co
 #### Luís Furtado
 
 #### Vinícius Roriz
+Trabalhar com agentes autônomos destacou a importância da descentralização em sistemas complexos. Cada agente toma decisões localmente, mas as interações entre eles geram comportamentos emergentes, como congestionamentos e padrões de fluxo no tráfego.
 
 ### II. Percepções
 
@@ -104,13 +105,15 @@ Atuei na criação do documento de estudo e análise do paradigma e projeto.
 #### Luís Furtado
 
 #### Vinícius Roriz
+Trabalhei na conceitualização do projeto e na implementação básica dos agentes e do modelo. A maior parte do tempo foi gasto pesquisando a documentação pois os exemplos disponíveis no repositório do MESA utilizam uma versão mais antiga, e muito foi alterado desde então.  
+Também fiquei responsável pela correção de erros no código e a refatoração de algumas implementações.
 
 ### IV. Trabalhos Futuros
 
 
 ## Fontes
 
-> [MESA API Documentation ](https://mesa.readthedocs.io/stable/apis/api_main.html).  Acesso em: 22 jan. 2024.
+> [MESA API Documentation](https://mesa.readthedocs.io/stable/apis/api_main.html).  Acesso em: 22 jan. 2024.
 
 > [MESA Introductory Tutorial](https://mesa.readthedocs.io/stable/tutorials/intro_tutorial.html#).  Acesso em: 22 jan. 2024.
 
