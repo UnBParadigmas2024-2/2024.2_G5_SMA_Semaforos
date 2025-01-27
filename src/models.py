@@ -12,20 +12,23 @@ class TrafficCell(mesa.Agent):
 
 
 class TrafficLightAgent(mesa.Agent):
-    def __init__(self, model, state="red"):
+    def __init__(self, model, state, green_timer, red_timer, yellow_timer):
         super().__init__(model)
         self.state = state
+        self.yellow_timer = yellow_timer
+        self.green_timer = green_timer
+        self.red_timer = red_timer
         self.timer = 0
 
     def step(self):
         self.timer += 1
-        if self.state == "red" and self.timer > 23:
+        if self.state == "red" and self.timer > self.red_timer:
             self.state = "green"
             self.timer = 0
-        elif self.state == "green" and self.timer > 10:
+        elif self.state == "green" and self.timer > self.green_timer:
             self.state = "yellow"
             self.timer = 0
-        elif self.state == "yellow" and self.timer > 10:
+        elif self.state == "yellow" and self.timer > self.yellow_timer:
             self.state = "red"
             self.timer = 0
 
@@ -88,7 +91,7 @@ class CarAgent(mesa.Agent):
         
 
 class TrafficModel(mesa.Model):
-    def __init__(self, max_cars=12, size=17):
+    def __init__(self, max_cars=12, size=17, green_timer=10, red_timer=20, yellow_timer=5):
         super().__init__()
         self.directions = ["n","s","e","w"]
         self.max_cars = max_cars
@@ -100,33 +103,33 @@ class TrafficModel(mesa.Model):
             model_reporters={"num_of_cars": "self.cars"}, agent_reporters={"State": "state"}
         )
 
-        self.place_traffic_lights()
+        self.place_traffic_lights(green_timer, red_timer, yellow_timer)
         self.place_intersections()
         self.place_buildings()
 
         for direction in self.directions:
             self.spawn_car(direction)
 
-    def place_traffic_lights(self):
+    def place_traffic_lights(self, green_timer, red_timer, yellow_timer):
         # western traffic light
         x = round(self.size/2) - 3 
         y = round(self.size/2) - 2
-        self.grid.place_agent(TrafficLightAgent(model=self, state="green"), (x, y))
+        self.grid.place_agent(TrafficLightAgent(self, "green", green_timer, red_timer, yellow_timer), (x, y))
 
         # northern traffic light
         x = round(self.size/2) - 2
         y = round(self.size/2) + 1
-        self.grid.place_agent(TrafficLightAgent(model=self, state="red"), (x, y))
+        self.grid.place_agent(TrafficLightAgent(self, "red", green_timer, red_timer, yellow_timer), (x, y))
 
         # eastern traffic light
         x = round(self.size/2) + 1 
         y = round(self.size/2)
-        self.grid.place_agent(TrafficLightAgent(model=self, state="green"), (x, y))
+        self.grid.place_agent(TrafficLightAgent(self, "green", green_timer, red_timer, yellow_timer), (x, y))
 
         # southern traffic light
         x = round(self.size/2)
         y = round(self.size/2) - 3
-        self.grid.place_agent(TrafficLightAgent(model=self, state="red"), (x, y))
+        self.grid.place_agent(TrafficLightAgent(self, "red", green_timer, red_timer, yellow_timer), (x, y))
     
     def place_intersections(self):
         x = round(self.size/2)

@@ -29,7 +29,7 @@ model_params = {
         "value": 6,
         "label": "Quantidade de carros",
         "min": 4,
-        "max": 20,
+        "max": 40,
         "step": 1,
     },
     "size": {
@@ -40,6 +40,30 @@ model_params = {
         "max": 30,
         "step": 1,
     },
+    "green_timer": {
+        "type": "SliderInt",
+        "value": 10,
+        "label": "Tempo do semáforo verde",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+    }, 
+    "red_timer":{
+        "type": "SliderInt",
+        "value": 20,
+        "label": "Tempo do semáforo vermelho",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+    }, 
+    "yellow_timer":{
+        "type": "SliderInt",
+        "value": 5,
+        "label": "Tempo do semáforo amarelo",
+        "min": 5,
+        "max": 100,
+        "step": 1,
+    }
 }
 
 tr_model = TrafficModel()
