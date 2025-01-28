@@ -71,13 +71,14 @@ Clique [aqui](https://youtu.be/mfGSf5s1wrk) para assistir o vídeo.
 
 ## Participações
 Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
-|Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios (ex. links para commits)
+
+|Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) | Comprobatórios (ex. links para commits) |
 | -- | -- | -- | -- |
 | Danilo Domingo Vitoriano Silva  | Criação da primeira versão de inputs para os usuários | Boa  | [Inputs](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86)
 | Gabrielly Assunção | Agentes de semáforos, alternância entre os estados e estruturação do documento | Execelente | https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/bd225ddeeaa09a0ea0b20788fb65cd7aae3181ca, https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/4e6dfb674faf0a88fc716e86fd72e31e4cde4128, https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/d83a5369dd24bb5df3f8cc28b5272e0d237b2632
 | Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
 | Karla Feliciano   | Interação do carro com outros agentes | Boa | [Commit](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/0fc1f29e38bfed4d8906a175e949549bef200b9c)
-| Lucas Medeiros Rosa | |  | 
+| Lucas Medeiros Rosa | Implementei o agente pedestre e adicionei o sistema de colisões com carros | Excelente | [Commit](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9b55a4b2c7fd07cea6ffde18dc5364a39518ada8) 
 | Luís Furtado de Araújo  | Criação e possibilidade de escalar os posicionamentos no mapa: buildings, traffic lights e intersections nas traffics cells. Documentação fix do problema comum das dependências do meta que está descrita neste Readme. | Boa | [Error installing Mesa](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/b3ee6118350b717d2857cdb6c513e2b19b1ab2da), [Regra dinâmica para as ruas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9cc01811dd26d05954ec747f32b887d01cfaec00), [Regras de interseção dinâmicas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/6bbb6c92fa8f9990517e01a186cce9d3a6a01731)
 | Vinícius Roriz | Criação das classes TrafficLightAgent, CarAgent, TrafficModel, TrafficCell. Implementação dos parâmetros de modelo.  | Excelente | [Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86), [Carro](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/76f5d374567221b6649e8ba7957c738bba4b82ae), [Parâmetros](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/f5a05af0178064b05223b7710e1cee0a4d65ef91)
 
@@ -108,6 +109,8 @@ Apesar de ser um paradigma bastante diferente, utilizar o framework mesa facilit
 #### Lucas Medeiros
 
 <p align=justify>
+Acredito que a maior lição que tive com essa atividade foi o cuidado necessário para modelar os diferentes comportamentos e interações entre os agentes.
+Dificilmente em outros paradigmas é tão necessário avaliar os corner cases e prever comportamentos emergentes.
 </p>
 
 #### Luís Furtado
@@ -172,6 +175,8 @@ Atuei na implementação de funcionalidades da integração do carro com outros 
 #### Lucas Medeiros
 
 <p align=justify>
+Idealizei e implementei a adição do agente pedestre no sistema, modelando seu comportamento de andar e definindo as eurísticas de movimentação.
+Além disso também implementei a colisão entre carros e pedestres, e por fim refatorei o código completo do projeto que antes estava em apenas um arquivo.
 </p>
 
 #### Luís Furtado
