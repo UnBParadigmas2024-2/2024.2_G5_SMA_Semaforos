@@ -78,7 +78,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
 | Karla Feliciano   | Interação do carro com outros agentes | Boa | [Commit](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/0fc1f29e38bfed4d8906a175e949549bef200b9c)
 | Lucas Medeiros Rosa | |  | 
-| Luís Furtado de Araújo  | Criação e possibilidade de escalar os posicionamentos no mapa: buildings, traffic lights e intersections nas traffics cells. Além disso, também contribui em relação a um problema comum das dependências do meta que está descrita neste readme. | Boa | [Error installing Mesa](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/b3ee6118350b717d2857cdb6c513e2b19b1ab2da), [Regra dinâmica para as ruas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9cc01811dd26d05954ec747f32b887d01cfaec00), [Regras de interseção dinâmicas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/6bbb6c92fa8f9990517e01a186cce9d3a6a01731)
+| Luís Furtado de Araújo  | Criação e possibilidade de escalar os posicionamentos no mapa: buildings, traffic lights e intersections nas traffics cells. Documentação fix do problema comum das dependências do meta que está descrita neste Readme. | Boa | [Error installing Mesa](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/b3ee6118350b717d2857cdb6c513e2b19b1ab2da), [Regra dinâmica para as ruas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9cc01811dd26d05954ec747f32b887d01cfaec00), [Regras de interseção dinâmicas](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/6bbb6c92fa8f9990517e01a186cce9d3a6a01731)
 | Vinícius Roriz | Criação das classes TrafficLightAgent, CarAgent, TrafficModel, TrafficCell. Implementação dos parâmetros de modelo.  | Excelente | [Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86), [Carro](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/76f5d374567221b6649e8ba7957c738bba4b82ae), [Parâmetros](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/f5a05af0178064b05223b7710e1cee0a4d65ef91)
 
 ## Outros 
@@ -113,6 +113,7 @@ Apesar de ser um paradigma bastante diferente, utilizar o framework mesa facilit
 #### Luís Furtado
 
 <p align=justify>
+O uso da ferramenta Mesa no desenvolvimento dos agentes nos reforçou a relevância da descentralização em determinados contextos de sistemas. Observamos que, embora cada agente opere de forma independente, as dinâmicas coletivas entre eles podem gerar fenômenos inesperados, como padrões no fluxo de tráfego e formação de congestionamentos.
 </p>
 
 #### Vinícius Roriz
@@ -176,6 +177,7 @@ Atuei na implementação de funcionalidades da integração do carro com outros 
 #### Luís Furtado
 
 <p align=justify>
+Trabalhei na criação e escalabilidade dinâmica dos posicionamentos no mapa: buildings, traffic lights e intersections nas traffics cells. Além disso, contribui na documentação do readme também do fix das dependências do meta que está descrita neste Readme.
 </p>
 
 #### Vinícius Roriz
