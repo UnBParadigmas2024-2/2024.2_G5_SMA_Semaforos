@@ -76,7 +76,7 @@ Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 | Danilo Domingo Vitoriano Silva  | Criação da primeira versão de inputs para os usuários | Boa  | [Inputs](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86)
 | Gabrielly Assunção | Agentes de semáforos, alternância entre os estados e estruturação do documento | Execelente | https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/bd225ddeeaa09a0ea0b20788fb65cd7aae3181ca, https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/4e6dfb674faf0a88fc716e86fd72e31e4cde4128, https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/d83a5369dd24bb5df3f8cc28b5272e0d237b2632
 | Jackes Fonseca | Atuei na criação do documento de estudo e análise do paradigma e projeto | Regular | [https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/e0a871bbdfe273fed054729fad55f4d8a8685051](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/9be54153aa2ea26f8fd6df49b3253d0b35dccb70)
-| Karla Feliciano   |  |  |
+| Karla Feliciano   | Interação do carro com outros agentes | Boa | [Commit](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/0fc1f29e38bfed4d8906a175e949549bef200b9c)
 | Lucas Medeiros Rosa | |  | 
 | Luís Furtado de Araújo  |  |  |
 | Vinícius Roriz | Criação das classes TrafficLightAgent, CarAgent, TrafficModel, TrafficCell. Implementação dos parâmetros de modelo.  | Excelente | [Semáforos](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/52b73985d9828450e2a2137aa9e90d6686de9c86), [Carro](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/76f5d374567221b6649e8ba7957c738bba4b82ae), [Parâmetros](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/commit/f5a05af0178064b05223b7710e1cee0a4d65ef91)
@@ -103,8 +103,7 @@ Durante o desenvolvimento deste trabalho, diversas lições foram adquiridas, co
 </p>
 
 #### Karla Feliciano
-<p align=justify>
-</p>
+Apesar de ser um paradigma bastante diferente, utilizar o framework mesa facilitou bastante o entendimento de como os agentes funcionam e interagem entre si.
 
 #### Lucas Medeiros
 
@@ -167,9 +166,7 @@ Atuei na criação do documento de estudo e análise do paradigma e projeto.
 </p>
 
 #### Karla Feliciano
-
-<p align=justify>
-</p>
+Atuei na implementação de funcionalidades da integração do carro com outros agentes, adicionando algumas regras e validações para adequar ao cenário do mundo real.
 
 #### Lucas Medeiros
 
