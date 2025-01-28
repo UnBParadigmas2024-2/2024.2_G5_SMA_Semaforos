@@ -137,9 +137,8 @@ com cenários de grande escala.
 
 ### Análise do Paradigma
 
-<p align=justify>
 Confira o [documento de estudo e análise do paradigma sistemas multiagentes](https://github.com/UnBParadigmas2024-2/2024.2_G5_SMA_Semaforos/blob/9be54153aa2ea26f8fd6df49b3253d0b35dccb70/docs/Sistemas%20multiagentes.docx.pdf), que explora os fundamentos teóricos e práticos desse modelo computacional, destacando sua aplicação na simulação de tráfego urbano com o framework MESA.
-</p>
+
 
 ### III. Contribuições e Fragilidades
 
