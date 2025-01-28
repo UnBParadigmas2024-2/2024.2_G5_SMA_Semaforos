@@ -66,7 +66,7 @@ python3 -m pip install -r requirements.txt
 
 ## Vídeo
 
-Clique [aqui]() para assistir o vídeo.
+Clique [aqui](https://youtu.be/mfGSf5s1wrk) para assistir o vídeo.
 
 
 ## Participações
